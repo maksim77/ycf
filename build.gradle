@@ -1,0 +1,41 @@
+plugins {
+    id 'idea'
+    id 'java-gradle-plugin'
+    id 'maven-publish'
+    id "com.gradle.plugin-publish" version "0.12.0"
+}
+
+group 'ru.mak_sim.ycf'
+version '0.5'
+
+idea {
+    module {
+        downloadJavadoc = true
+    }
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    implementation group: 'com.yandex.cloud', name: 'java-sdk-services', version: '2.1.1'
+}
+
+gradlePlugin {
+    plugins {
+        ycf {
+            id = 'ru.mak_sim.ycf'
+            implementationClass = 'ru.mak_sim.ycf.YcfPlugin'
+            displayName = 'ycf-plugin'
+            description = 'Update version of Yandex Cloud Function from your gradle'
+        }
+    }
+}
+
+pluginBundle {
+    website = 'https://github.com/maksim77/ycf'
+    vcsUrl = 'https://github.com/maksim77/ycf'
+    description = 'Gradle plugin for deploy Yandex Cloud Functions'
+    tags = ['yandex', 'cloud', "functions"]
+}
