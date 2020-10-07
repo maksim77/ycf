@@ -6,7 +6,7 @@ plugins {
 }
 
 group 'ru.mak_sim.ycf'
-version '0.5'
+version '0.5.0'
 
 idea {
     module {
